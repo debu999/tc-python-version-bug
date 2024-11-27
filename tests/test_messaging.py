@@ -16,10 +16,13 @@ Examples:
     To run the tests, use the pytest command in the terminal.
 """
 import json
+import os
 from typing import Dict
 
 import pytest
 from confluent_kafka import Producer, Consumer, TopicPartition
+
+os.environ["RYUK_CONTAINER_IMAGE"] = "testcontainers/ryuk:0.9.0"
 from testcontainers.kafka import RedpandaContainer
 
 
@@ -121,8 +124,8 @@ def consume_message(bootstrap_servers, topic="orders", offset=None,
     consumer.subscribe(["orders"])
   try:
     msg = consumer.poll(1.0)
-    print(
-      json.dumps({"message": f'''Received message: {msg.value().decode('utf-8')},
+    print(json.dumps(
+        {"message": f'''Received message: {msg.value().decode('utf-8')},
       offset {msg.offset()}
       topic {msg.topic()}
       partition {msg.partition()}
