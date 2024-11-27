@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "tc-python-version-bug"
+version = "0.1.0"
+description = ""
+authors = ["Debabrata Patnaik <debabrata_patnaik@live.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+confluent-kafka = "^2.6.1"
+
+
+[tool.poetry.group.dev.dependencies]
+testcontainers = "^4.8.2"
+coverage = "^7.6.8"
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
