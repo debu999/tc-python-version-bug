@@ -22,7 +22,7 @@ from typing import Dict
 import pytest
 from confluent_kafka import Producer, Consumer, TopicPartition
 
-os.environ["RYUK_CONTAINER_IMAGE"] = "testcontainers/ryuk:0.9.0"
+os.environ["RYUK_CONTAINER_IMAGE"] = "testcontainers/ryuk:0.10.0"
 from testcontainers.kafka import RedpandaContainer
 
 
